@@ -22,7 +22,7 @@ To sum it up, at the end you should end up with:
 
 - A gallery page, listing all the photos
 - A photo upload form
-- An albums page, listing all the albums (title and status)
+- An albums page, listing all the albums (title, status and photo count)
 - An album creation/edition form
 - An album dashboard page, showing album details and photos
 
@@ -32,7 +32,7 @@ To sum it up, at the end you should end up with:
 - Our current development stack uses mainly Laravel, Vue and Tailwindcss, so this project makes all of those available to you. Nevertheless, feel free to use different technologies in your implementation.
 - Although you should try to make your code as self-explanatory as possible, please try to document your implementation steps just so we can get a glimpse at your thought process. If you decide to do that, please use the `NOTES.md` file.
 - Please take screenshots of your final solution and send them along with the code.
-- You should use the `AlbumCompiler` class to trigger the fake album compilation.
+- You should use the `AlbumCompiler` class to trigger the fake album compilation. This class is already implemented, you just need to use it.
 - You should finish implementing the `AlbumCompilationWebhookController` class to handle the fake album compilation success or failure.
 - A user is created for you when you migrate your database (email: `photobomber@icastgo.com` / password: `password`).
 - See the installation steps for further local environment setup.
@@ -48,9 +48,9 @@ To sum it up, at the end you should end up with:
 
 ## Bonus
 
-- Add ability to retry the album compilation in case of failure
-- Add realtime updates to your UI (e.g. show status changes without the need to refresh the page)
-- Add phpunit tests
+- Add ability to retry the album compilation in case of failure.
+- Add realtime updates to your UI (e.g. show status changes without the need to refresh the page).
+- Add phpunit tests.
 - If you feel confortable, try to use Event Sourcing for modelling the Album lifecycle. The [spatie/laravel-event-sourcing](https://spatie.be/docs/laravel-event-sourcing/v4/introduction) package is available if you need it. Again, feel free to use whatever you prefer.
 
 <br>
