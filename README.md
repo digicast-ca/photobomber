@@ -44,6 +44,7 @@ To sum it up, at the end you should end up with:
 - Create a database named `photobomber`
 - Run `php artisan migrate --seed`
 - Run `npm install`
+- Change QUEUE_CONNECTION to `redis` on your `.env` and run `php artisan queue:listen` so the "Compile" job runs in the background (simulating an async API)
 
 ## Bonus
 
