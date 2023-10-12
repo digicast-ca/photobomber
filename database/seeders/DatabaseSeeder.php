@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
                 'name' => 'Photobomber',
                 'email' => 'photobomber@icastgo.com',
             ]);
-        } catch (Throwable $exception) {}
+        } catch (Throwable $exception) {
+        }
     }
 }
