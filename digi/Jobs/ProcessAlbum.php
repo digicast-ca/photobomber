@@ -20,8 +20,11 @@ class ProcessAlbum implements ShouldQueue
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
     private Album $album;
+
     private int $minCount;
+
     private int $maxCount;
+
     private int $chanceOfPhotobombingException;
 
     public function __construct(Album $album)

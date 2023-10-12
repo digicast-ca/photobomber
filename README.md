@@ -37,20 +37,33 @@ To sum it up, at the end you should end up with:
 - A user is created for you when you migrate your database (email: `photobomber@icastgo.com` / password: `password`).
 - See the installation steps for further local environment setup.
 
-## Installation
+## Installation using [Laravel Sail](https://laravel.com/docs/10.x/sail#introduction) (docker)
 
+- Make sure you have Docker installed
 - Create a `.env` file (use `.env.example` as a reference)
-- Run `composer install`
-- Create a database named `photobomber`
-- Run `php artisan migrate --seed`
-- Run `npm install`
-- Change QUEUE_CONNECTION to `redis` on your `.env` and run `php artisan queue:listen` so the "Compile" job runs in the background (simulating an async API)
+  - Set DB_HOST=mariadb in your `.env`
+  - Set QUEUE_CONNECTION=redis in your `.env`
+- Run command below
+```sh
+docker run --rm \                                                                                                                                         ~/Sites/digicast/photobomber-rafael
+  -u "$(id -u):$(id -g)" \
+  -v "$(pwd):/var/www/html" \
+  -w /var/www/html \
+  laravelsail/php82-composer:latest \
+  composer install --ignore-platform-reqs
+```
+- Run `./vendor/bin/sail up -d` to start the containers
+- Run `./vendor/bin/sail artisan migrate --seed` to create your database and seed it with a test user
+- Run `./vendor/bin/sail npm install && npm run dev` to install the frontend dependencies and compile the assets
+- Run `./vendor/bin/sail artisan queue:listen` so the "Compile" job runs in the background (simulating an async API)
+- Run `./vendor/bin/sail stop` when you'd like to stop the containers
 
 ## Bonus
 
 - Add ability to retry the album compilation in case of failure.
 - Add realtime updates to your UI (e.g. show status changes without the need to refresh the page).
 - Add phpunit tests.
+  - Run `./vendor/bin/sail test` when you'd like to run tests
 - If you feel confortable, try to use Event Sourcing for modelling the Album lifecycle. The [spatie/laravel-event-sourcing](https://spatie.be/docs/laravel-event-sourcing/v4/introduction) package is available if you need it. Again, feel free to use whatever you prefer.
 
 <br>

@@ -8,6 +8,7 @@ use Throwable;
 class CompilationFailed
 {
     public Album $album;
+
     public Throwable $throwable;
 
     public function __construct(Album $album, Throwable $throwable)
