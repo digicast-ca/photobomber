@@ -31,4 +31,11 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'digi_compiler' => [
+        'min_album_photo_count' => env('DC_MIN_ALBUM_PHOTO_COUNT', 6),
+        'max_album_photo_count' => env('DC_MAX_ALBUM_PHOTO_COUNT', 30),
+        'chance_of_low_photobombing_levels_exception' => env('DC_CHANCE_OF_LOW_PHOTOBOMBING_LEVELS_EXCEPTION', 25),
+        'delay_multiplier' => env('DC_DELAY_MULTIPLIER', 3),
+    ],
+
 ];
