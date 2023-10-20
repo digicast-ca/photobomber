@@ -45,7 +45,7 @@ To sum it up, at the end you should end up with:
   - Set QUEUE_CONNECTION=redis in your `.env`
 - Run command below
 ```sh
-docker run --rm \                                                                                                                                         ~/Sites/digicast/photobomber-rafael
+docker run --rm \
   -u "$(id -u):$(id -g)" \
   -v "$(pwd):/var/www/html" \
   -w /var/www/html \
